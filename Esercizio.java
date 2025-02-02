@@ -10,40 +10,63 @@ public static int leggicomando(){
     return c;
 }
 
-public static int ricercaNelVettore (int [] V = int [] , int valore,N){
+public static int ricercaNelVettore (int [] V =new int [] , int valore,N){
     int i;
     i=0;
     return i;
 }
 
-public static int InserisciElemento (int [] V = int [] , int N,e,j,d , int [] W = int [] ){
+public static int InserisciElemento (int [] V =new int [] , int N,i,ie , int [] W =new int [] ){
     int N2;
-    N2=N;
-    int [] V = int [N*10];
-    int [] W = int [N+1];
-    for (i=0 ; i=d-1 ; i=i+1){
+    N2=N-1;
+    int [] V = new int [N*10];
+    int [] W =new int [N+1];
+    i=0;
+    while (i<ie-1){
         W[i]=V[i];
-        for (i=d+1 ; i=N ; i=i+1){
-            W[j]=V[j-1];
-        }
+        i=i+1;
     }
+    i=ie+1;
+
+    while(i<N+1){
+        W[i]=V[i];
+        i=i+1;
+    }
+
+    while(i<N2) {
+        V[i]=W[i];
+        i=i+1;
+    }
+
     return N2;
 
 }
 
-public static int EliminaElemento (int [] V = int [] , int N,e,j,d , int [] W = int [] ){
+public static int EliminaElemento (int [] V =new int [] , int N,e,j,d , int [] W =new int [] ){
     int N2;
     N2=N;
     int [] W = int [N-1];
-    for (i=0 ; i=d-1 ; i=i+1){
+    i=0;
+    while (i<ie-1){
         W[i]=V[i];
-        for (i=d+1 ; i=N ; i=i+1){
-            W[j]=V[j-1];
-        }
+        i=i+1;
     }
+    i=ie+1;
+
+    while(i<N-2){
+        W[i]=V[i+1];
+        i=i+1;
+    }
+
+    while(i<N2) {
+        V[i]=W[i];
+        i=i+1;
+    }
+
     return N2;
 
-    public static void  visualizzaVettore (int [] V = int [] , int valore){
+
+    public static void  visualizzaVettore (int [] V =new int [] , int valore){
         int i;
         i=0;
         while ("i<N"){
@@ -53,7 +76,7 @@ public static int EliminaElemento (int [] V = int [] , int N,e,j,d , int [] W = 
  
     }
 
-    public static void azzeraVettore (int [] V = int [] , int valore){
+    public static void azzeraVettore (int [] V =new int [] , int valore){
         int i;
         i=0;
         while ("i<N"){
@@ -63,7 +86,7 @@ public static int EliminaElemento (int [] V = int [] , int N,e,j,d , int [] W = 
  
     }
 
-    public static int EliminaDuplicati (int [] V = int [] , int N ,i,j){
+    public static int EliminaDuplicati (int [] V =new int [] , int N ,i,j){
         int N2;
         while(i<N){
             while(j<N){
@@ -89,7 +112,7 @@ class Esercizio {
         String c;
         System.out.println("Inserisci dimensione del vettore");
         N = in.nextLine();
-        int [] V = int [N];
+        int [] V =new int [N];
         do {
             c=leggicomando();
 
