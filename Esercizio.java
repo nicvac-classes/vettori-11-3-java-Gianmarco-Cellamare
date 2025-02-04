@@ -16,52 +16,31 @@ public static int ricercaNelVettore (int [] V =new int [] , int valore,N){
     return i;
 }
 
-public static int InserisciElemento (int [] V =new int [] , int N,i,ie , int [] W =new int [] ){
+public static int InserisciElemento (int [] V =new int [] , int N,i,ie ){
     int N2;
     N2=N-1;
     int [] V = new int [N*10];
-    int [] W =new int [N+1];
-    i=0;
-    while (i<ie-1){
-        W[i]=V[i];
+    i=ie;
+    while (i<=N-1){
+        V[i]=V[i-1];
         i=i+1;
     }
-    i=ie+1;
-
-    while(i<N+1){
-        W[i]=V[i];
-        i=i+1;
-    }
-
-    while(i<N2) {
-        V[i]=W[i];
-        i=i+1;
-    }
-
+    N2=N-1;
     return N2;
 
 }
 
 public static int EliminaElemento (int [] V =new int [] , int N,e,j,d , int [] W =new int [] ){
     int N2;
-    N2=N;
-    int [] W = int [N-1];
-    i=0;
-    while (i<ie-1){
-        W[i]=V[i];
+    N2=N-1;
+    int [] V = new int [N*10];
+    i=ie;
+    while (i<=N-2){
+        V[i]=V[i+1];
         i=i+1;
     }
-    i=ie+1;
-
-    while(i<N-2){
-        W[i]=V[i+1];
-        i=i+1;
-    }
-
-    while(i<N2) {
-        V[i]=W[i];
-        i=i+1;
-    }
+    N2=N-1;
+    return N2;
 
     return N2;
 
