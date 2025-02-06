@@ -65,15 +65,23 @@ public static int EliminaElemento (int [] V =new int [] , int N,e,j,d , int [] W
  
     }
 
-    public static int EliminaDuplicati (int [] V =new int [] , int N ,i,j){
-        int N2;
+    public static int EliminaDuplicati (int [] V =new int [N] ,int [] W =new int [N] , int N ,i,j,k){
+        boolean duplicati;
+        i=0;
+        k=0;
         while(i<N){
-            while(j<N){
+            j=i+1;
+            while(j<N-1 and duplicati=false){
                 if(V[i] == V[j]){
+                    duplicati=true;
                 }
                 j=j+1;
             }
-            i=i+1;
+            if (duplicati==false){
+                W[k]=V[i];
+                k=k+1;
+            }
+
         }
         N2=N;
         return N2;
