@@ -4,48 +4,51 @@ import java.util.Scanner;
 public static int leggicomando(){
     String c;
     do {
-        System.out.println("[I] Inserisci elemento | [E] Elimina elemento | [R] Ricerca elemento | [D] Elimina duplicati | [V] Visualizza vettore | [X] Esci");
+        System.out.println("[I] Inserisci elemento | [E] Elimina elemento | [R] RicercaNelVettore | [D] Elimina duplicati | [V] Visualizza vettore | [X] Esci");
 
     } while(c!="I" && c!="E" && c!="R" && c!="D" && c!="V" && c!="X");
     return c;
 }
 
-public static int ricercaNelVettore (int [] V =new int [] , int valore,N){
-    int i;
+ public static int ricercaNelVettore (int [] V =new int [] , int valore,N){
+    int i,iTrovato;
     i=0;
-    return i;
+    iTrovato=-1;
+    while (i<N and iTrovato==-1){
+        if (V[i] == valore) {
+            iTrovato=i;
+            i=i+1;
+        }
+    }
+    return iTrovato;
 }
 
-public static int InserisciElemento (int [] V =new int [] , int N,i,ie ){
-    int N2;
-    N2=N-1;
-    int [] V = new int [N*10];
-    i=ie;
-    while (i<=N-1){
+public static int InserisciElemento (int [] V =new int [] , int N,e,ie ){
+    int i,N2;
+    N2=N+1;
+    i=N2-1;
+    while (i>=ie+1){
         V[i]=V[i-1];
         i=i+1;
     }
-    N2=N-1;
+    V[ie]=e;
     return N2;
 
 }
 
-public static int EliminaElemento (int [] V =new int [] , int N,e,j,d , int [] W =new int [] ){
+public static int EliminaElemento (int [] V =new int [] , int N,ie ){
     int N2;
     N2=N-1;
-    int [] V = new int [N*10];
     i=ie;
     while (i<=N-2){
         V[i]=V[i+1];
         i=i+1;
     }
-    N2=N-1;
-    return N2;
-
     return N2;
 
 
-    public static void  visualizzaVettore (int [] V =new int [] , int valore){
+
+    public static void  visualizzaVettore (int [] V =new int []){
         int i;
         i=0;
         while ("i<N"){
@@ -58,34 +61,28 @@ public static int EliminaElemento (int [] V =new int [] , int N,e,j,d , int [] W
     public static void azzeraVettore (int [] V =new int [] , int valore){
         int i;
         i=0;
-        while ("i<N"){
-            System.out.println("V[i]");
+        while ("i<N-1"){
+            V[i]=0;
             i=i+1;
         }
  
     }
 
-    public static int EliminaDuplicati (int [] V =new int [N] ,int [] W =new int [N] , int N ,i,j,k){
-        boolean duplicati;
+    public static int EliminaDuplicati (int [] V =new int [] ,int N){
+        int i,j,N2;
         i=0;
-        k=0;
-        while(i<N){
+        while(i<N-2){
             j=i+1;
-            while(j<N-1 and duplicati=false){
+            while (j<N-1){
                 if(V[i] == V[j]){
-                    duplicati=true;
+                    N=EliminaElemento(V,N,i);
                 }
                 j=j+1;
             }
-            if (duplicati==false){
-                W[k]=V[i];
-                k=k+1;
-            }
-
-        }
-        N2=N;
         return N2;
     }
+
+
 
 
 
@@ -95,11 +92,12 @@ class Esercizio {
     public static void main(String args[])
     {
         Scanner in = new Scanner( System.in );
-        int i, N, e, j, d;
+        int i, N, e;
         String c;
         System.out.println("Inserisci dimensione del vettore");
         N = in.nextLine();
-        int [] V =new int [N];
+        int [] V =new int [N*10];
+        azzeraVettore(V,N);
         do {
             c=leggicomando();
 
@@ -107,34 +105,30 @@ class Esercizio {
                 System.out.println("Inserisci elemento");
                 e = in.nextLine();
                 do {
-                    stem.out.println("Inserisci posizione");
+                    System.out.println("Inserisci posizione");
                     i = in.nextline();
-                    N=InserisciElemento(VN,e,i,W,j,d);
-
-
-                }while(i<0 or i>=N);
+                }while(i<0 or i>=N);ù
+                N=InserisciElemento(V,n,e,i);
             }
 
             if (c = "E"){
                 do {
                     System.out.println("Inserire cella del vettore che desideri eliminare");
                     i = in.nextLine();
-                    N=EliminaElemento(VN,e,i,W,j,d);
-
-
                 }while(i<0 or i>=N);
+                N=EliminaElemento(V,N,i)
             }
 
             if (c = "R"){
                 System.out.println("Inserisci elemento da cercare");
                 e=in.nextline();
-                if (i > =0){
+                i=ricercaNelVettore(V,N,e);
+                if (i >=0){
                     System.out.println("L'elemento " +e+ "si trova nella posizione " +i);
                 }
                 else {
                     System.out.println("L'elemento " +e+ "non è stato trovato ");
                 }
-                i=ricercaNelVettore(V,N,e);
 
             }
 
